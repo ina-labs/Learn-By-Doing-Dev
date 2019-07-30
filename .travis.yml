@@ -1,9 +1,13 @@
 language: php
+sudo: required
+dist: trusty
+group: edge
+
 
 php:
   - 7.2
   - 7.3
-  
+
 addons:
   mariadb: '10.0'
 
