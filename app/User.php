@@ -6,12 +6,19 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use App\Traits\Uuid;
+
+
 // Please add this line
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
+    use Uuid;
+
+    protected $primaryKey = 'uuid';
+    protected $keyType = 'string';
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +26,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','uuid','roles'
     ];
 
     /**

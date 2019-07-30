@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use DB;
+use App\User;
+
 
 class UsersTableSeeder extends Seeder
 {
@@ -12,10 +13,11 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@gmail.com',
-            'password' => bcrypt('password'),
+        User::create([ // create a new user
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('admin'),
+            'name' => 'Administrator',
+            'roles' => 1
         ]);
     }
 }
