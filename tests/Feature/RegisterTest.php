@@ -13,10 +13,23 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testRegister()
     {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
+        $info = ['email'=>'admin21@admin.com','password'=>'admin123','password_confirmation'=>'admin123','name'=>'testuser'];
+        $response = $this->json('POST', '/api/register', $info) ->assertStatus(200);       
     }
+
+    public function testRegisterEmailExist()
+    {
+        $info = ['email'=>'admin21@admin.com','password'=>'admin123','password_confirmation'=>'admin123','name'=>'testuser'];
+        $response = $this->json('POST', '/api/register', $info) ->assertStatus(400);       
+    }
+
+    public function testRegisterUncompletedRequest()
+    {
+        $info = ['email'=>'admin213@admin.com','password'=>'admin123','name'=>'testuser'];
+        $response = $this->json('POST', '/api/register', $info) ->assertStatus(400);       
+    }
+
+
 }
