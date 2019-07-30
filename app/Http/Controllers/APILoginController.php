@@ -24,7 +24,7 @@ class APILoginController extends Controller
         ]);
         $err_msg = array(
             'status' => 'error',
-            'message' => 'Periksa Kembali Input anda!'
+            'message' => 'Periksa kembali input anda!'
         );
         if($validator->fails()){
             return response()->json($err_msg, 400);
