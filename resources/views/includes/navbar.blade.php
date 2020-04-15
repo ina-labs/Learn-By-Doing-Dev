@@ -1,7 +1,7 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="#">
-      <img src="frontend/images/logo_scire.png" alt="Logo Travel" srcset="">
+      <img src="{{ asset('frontend/images/logo_scire.png') }}" alt="Logo Travel" srcset="">
 
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
