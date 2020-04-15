@@ -42,13 +42,13 @@
       </form>
 
       <form class="form-inline my-2 my-lg-0 d-none d-md-block">
-        <a href="login.html" class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4">
+        <a href="{{ route('login')}}" class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4">
           Log In
         </a>
         
       </form>
       <form class="form-inline my-2 my-lg-0 d-none d-md-block">
-        <a href="" class="btn btn-register btn-navbar-right my-2 my-sm-0 px-4">
+        <a href="{{ route('register')}}" class="btn btn-register btn-navbar-right my-2 my-sm-0 px-4">
           Sign Up
         </a>
         

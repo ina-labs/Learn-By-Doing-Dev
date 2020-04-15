@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -74,4 +74,105 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="{{asset('frontend/libraries/bootstrap/css/bootstrap.css')}}">
+  
+  <link
+    href="https://fonts.googleapis.com/css?family=Assistant:200,300,400,600,700,800|Playfair+Display:400,400i,700,700i,900,900i&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{{asset('frontend/styles/login.css')}}">
+
+
+</head>
+<body>
+  
+  <div class="container">
+   
+      <div class="login-page">
+        <div class="row">
+        <div class="col-md-6 d-flex align-items-center">
+          
+          <div class="login-page-right">
+            <div class="header-login">
+              <a class="navbar-brand" href="#">
+                <img src="{{ asset('frontend/images/logo_scire.png')}}" alt="Logo Travel" srcset="">      
+              </a>
+              
+            </div>
+  
+            <div class="form-login">
+              <h1>Sign Up</h1>
+              <p>Sign up to continue to our application</p>
+              <form action="{{ route('register') }}"  method="post">
+                @csrf
+
+                <div class="input-group mb-3">
+                  
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nama Lengkap" required autocomplete="name" autofocus>
+                    @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror  
+                </div>
+
+                <div class="input-group mb-3">
+                  
+                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" required autocomplete="email">
+                  @error('email')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+                 @enderror
+                </div>
+                  
+                <div class="input-group mb-3">
+                  
+                  <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" required autocomplete="new-password">
+                  @error('password')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+                  @enderror
+                </div>
+
+                <div class="input-group mb-3">
+                  
+                  <input id="password-confirm" placeholder="Confirm Password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                </div>
+
+  
+                <button type="submit" class="btn btn-block btn-login-page">
+                  Sign Up
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-6 d-none d-md-block">
+          <div class="login-page-left">
+            
+          </div>
+        </div>
+      </div>
+      </div>     
+    
+  </div>
+
+  @stack('prepend-script')
+
+  @include('includes.script')
+
+  @stack('addon-script')
+
+</body>
+</html>

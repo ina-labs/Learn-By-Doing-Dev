@@ -79,12 +79,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 
-  <link rel="stylesheet" href="frontend/libraries/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="{{asset('frontend/libraries/bootstrap/css/bootstrap.css')}}">
   
   <link
     href="https://fonts.googleapis.com/css?family=Assistant:200,300,400,600,700,800|Playfair+Display:400,400i,700,700i,900,900i&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="frontend/styles/login.css">
+  <link rel="stylesheet" href="{{asset('frontend/styles/login.css')}}">
 
 
 </head>
@@ -162,8 +162,12 @@
     
   </div>
 
-  <script src="frontend/libraries/jquery/jquery-3.4.1.min.js"></script>
-  <script src="frontend/libraries/bootstrap/js/bootstrap.js"></script>
-  <script src="frontend/libraries/retina/retina.min.js"></script>
+  @stack('prepend-script')
+
+  @include('includes.script')
+
+  @stack('addon-script')
+
+
 </body>
 </html>
